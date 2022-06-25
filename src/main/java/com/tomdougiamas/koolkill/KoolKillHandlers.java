@@ -13,7 +13,6 @@ public class KoolKillHandlers implements Listener {
     public KoolKillHandlers(KoolKill p) {
         plugin = p;
     }
-    int bossBarID = 0;
     @EventHandler
     public void onPlayerKill(EntityDamageByEntityEvent e) {
         if (!plugin.enabled) return;
