@@ -8,6 +8,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
+import static org.bukkit.Bukkit.getServer;
+
 public class KoolKillHandlers implements Listener {
     KoolKill plugin;
     public KoolKillHandlers(KoolKill p) {
@@ -27,7 +29,9 @@ public class KoolKillHandlers implements Listener {
             Title message = new Title("§4You slaughtered %s!".formatted(victim.getName()), null, 10, 30, 10);
             message.send(attacker);
             for (int i = 0; i < 4; i++) {
-                victim.getWorld().strikeLightningEffect(victim.getLocation());
+                getServer().getScheduler().runTaskLater(plugin, () -> {
+                    victim.getWorld().strikeLightningEffect(victim.getLocation());
+                }, i * 4);
             }
             attacker.playSound(attacker.getLocation(), Sound.AMBIENT_CAVE, 2F, 0.0F);
         }
