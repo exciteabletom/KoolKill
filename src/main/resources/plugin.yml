@@ -1,0 +1,8 @@
+name: KoolKill
+version: 1.0
+main: com.tomdougiamas.koolkill.KoolKill
+api-version: 1.19
+
+commands:
+  koolkill:
+    usage: "/koolkill on/off"
